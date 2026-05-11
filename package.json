@@ -1,0 +1,22 @@
+{
+  "name": "simple-dashboard",
+  "version": "1.0.0",
+  "description": "A full-stack dashboard application with React frontend and Node.js backend",
+  "scripts": {
+    "start": "concurrently \"npm run start:frontend\" \"npm run start:backend\"",
+    "start:frontend": "cd frontend && npm start",
+    "start:backend": "cd backend && npm run dev",
+    "install:all": "concurrently \"cd frontend && npm install\" \"cd backend && npm install\""
+  },
+  "keywords": [
+    "dashboard",
+    "react",
+    "nodejs",
+    "express"
+  ],
+  "author": "Dashboard Team",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.0.0"
+  }
+}
