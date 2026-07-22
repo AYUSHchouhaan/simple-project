@@ -1,0 +1,159 @@
+{
+  "updatedAt": "2026-07-17T22:57:10.354Z",
+  "snapshots": [
+    {
+      "timestamp": "2026-07-17T22:57:07.134Z",
+      "sequence": 1,
+      "source": "user_query",
+      "event": {
+        "type": "user_query",
+        "text": "implement oauth in this  project with google oauth keep the dummy env file"
+      },
+      "state": [
+        {
+          "kind": "user_query",
+          "text": "implement oauth in this  project with google oauth keep the dummy env file"
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-07-17T22:57:08.668Z",
+      "sequence": 2,
+      "source": "agent_event",
+      "event": {
+        "type": "tool_call",
+        "node": "generate-action",
+        "name": "glob",
+        "args": {
+          "patterns": [
+            "**/package.json",
+            "**/src/**/*",
+            "**/app/**/*",
+            "**/.env*",
+            "**/README*"
+          ]
+        }
+      },
+      "state": [
+        {
+          "kind": "user_query",
+          "text": "implement oauth in this  project with google oauth keep the dummy env file"
+        },
+        {
+          "kind": "tool_call",
+          "node": "generate-action",
+          "name": "glob",
+          "args": "**/package.json, **/src/**/*, **/app/**/*, **/.env*, **/README*"
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-07-17T22:57:08.715Z",
+      "sequence": 3,
+      "source": "agent_event",
+      "event": {
+        "type": "tool_result",
+        "node": "take-action",
+        "name": "glob",
+        "result": "file matching README.md\npackage.json\nbackend/.env\nbackend/package.json\nfrontend/src/utils/fdk.js\nfrontend/src/index.js\nfrontend/src/index.css\nfrontend/src/components/StatCard.js\nfrontend/src/components/SalesChart.js\nfrontend/src/components/Profile.jsx\nfrontend/src/components/Profile.js\nfrontend/src/"
+      },
+      "state": [
+        {
+          "kind": "user_query",
+          "text": "implement oauth in this  project with google oauth keep the dummy env file"
+        },
+        {
+          "kind": "tool_call",
+          "node": "generate-action",
+          "name": "glob",
+          "args": "**/package.json, **/src/**/*, **/app/**/*, **/.env*, **/README*"
+        },
+        {
+          "kind": "tool_result",
+          "node": "take-action",
+          "name": "glob",
+          "result": "file matching README.md package.json backend/.env backend/package.json frontend/src/utils/fdk.js frontend/src/index.js frontend/src/index.css frontend/src/components/StatCard.js frontend/src/component…"
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-07-17T22:57:09.969Z",
+      "sequence": 4,
+      "source": "agent_event",
+      "event": {
+        "type": "tool_call",
+        "node": "generate-action",
+        "name": "read",
+        "args": {
+          "filePaths": [
+            "package.json",
+            "backend/package.json",
+            "backend/.env",
+            "frontend/package.json"
+          ]
+        }
+      },
+      "state": [
+        {
+          "kind": "user_query",
+          "text": "implement oauth in this  project with google oauth keep the dummy env file"
+        },
+        {
+          "kind": "tool_call",
+          "node": "generate-action",
+          "name": "glob",
+          "args": "**/package.json, **/src/**/*, **/app/**/*, **/.env*, **/README*"
+        },
+        {
+          "kind": "tool_result",
+          "node": "take-action",
+          "name": "glob",
+          "result": "file matching README.md package.json backend/.env backend/package.json frontend/src/utils/fdk.js frontend/src/index.js frontend/src/index.css frontend/src/components/StatCard.js frontend/src/component…"
+        },
+        {
+          "kind": "tool_call",
+          "node": "generate-action",
+          "name": "read",
+          "args": "package.json, backend/package.json, backend/.env, frontend/package.json"
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-07-17T22:57:10.354Z",
+      "sequence": 5,
+      "source": "agent_event",
+      "event": {
+        "type": "error",
+        "message": "400 An assistant message with 'tool_calls' must be followed by tool messages responding to each 'tool_call_id'. The following tool_call_ids did not have response messages: call_iLzXvyTrtKU8ZbopzAI04l8k\n\nTroubleshooting URL: https://docs.langchain.com/oss/javascript/langchain/errors/INVALID_TOOL_RESULTS/\n"
+      },
+      "state": [
+        {
+          "kind": "user_query",
+          "text": "implement oauth in this  project with google oauth keep the dummy env file"
+        },
+        {
+          "kind": "tool_call",
+          "node": "generate-action",
+          "name": "glob",
+          "args": "**/package.json, **/src/**/*, **/app/**/*, **/.env*, **/README*"
+        },
+        {
+          "kind": "tool_result",
+          "node": "take-action",
+          "name": "glob",
+          "result": "file matching README.md package.json backend/.env backend/package.json frontend/src/utils/fdk.js frontend/src/index.js frontend/src/index.css frontend/src/components/StatCard.js frontend/src/component…"
+        },
+        {
+          "kind": "tool_call",
+          "node": "generate-action",
+          "name": "read",
+          "args": "package.json, backend/package.json, backend/.env, frontend/package.json"
+        },
+        {
+          "kind": "error",
+          "message": "400 An assistant message with 'tool_calls' must be followed by tool messages responding to each 'tool_call_id'. The following tool_call_ids did not have response messages: call_iLzXvyTrtKU8ZbopzAI04l8k\n\nTroubleshooting URL: https://docs.langchain.com/oss/javascript/langchain/errors/INVALID_TOOL_RESULTS/\n"
+        }
+      ]
+    }
+  ]
+}
