@@ -38,9 +38,12 @@ export const formatDate = (date, format = 'short') => {
  * @param {string} suffix - Suffix to append if truncated (default: '...')
  * @returns {string} Truncated text
  */
-export const truncateText = (text, maxLength, suffix = '...') => {
-  if (!text || text.length <= maxLength) return text;
-  return text.substring(0, maxLength) + suffix;
+export const truncateText = (text, maxLength = 100, suffix = '...') => {
+  if (text == null) return '';
+  if (typeof maxLength !== 'number' || maxLength <= 0) return String(text);
+  const str = String(text);
+  if (str.length <= maxLength) return str;
+  return str.substring(0, maxLength) + suffix;
 };
 
 /**
@@ -48,7 +51,8 @@ export const truncateText = (text, maxLength, suffix = '...') => {
  * @returns {string} Random ID string
  */
 export const generateId = () => {
-  return Math.random().toString(36).substr(2, 9);
+  // Use slice instead of deprecated substr and ensure consistent length
+  return Math.random().toString(36).slice(2, 11);
 };
 
 /**
@@ -91,7 +95,11 @@ export const snakeToCamel = (str) => {
  */
 export const getInitials = (name) => {
   if (!name) return '';
-  return name.split(' ').map(n => n[0]).join('').toUpperCase();
+  const parts = String(name).trim().split(/\s+/).filter(Boolean);
+  if (parts.length === 0) return '';
+  // Use first letter of up to two name parts (e.g., "John Doe" => "JD")
+  const initials = parts.slice(0, 2).map(p => p[0]).join('');
+  return initials.toUpperCase();
 };
 
 export default {
